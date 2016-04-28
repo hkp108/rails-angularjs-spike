@@ -17,6 +17,6 @@
 
   <div ng-show='searchResults'></div>
   <ul ng-repeat="movie in movieSearchResults">
-    <li class="results">{{movie.title}}<button ng-click='addMovie(movie)'>+</button></li>
+    <li class="results">{{movie.title}}<button ng-click='searchcontroller.addMovie(movie)'>+</button></li>
   </ul>
 </div>

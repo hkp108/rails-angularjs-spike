@@ -19,11 +19,11 @@ angular
     $scope.movieTitle = null;
 }
 
-    self.addMovie = function(selectedMovie) {
+  self.addMovie = function(selectedMovie) {
 
     var entry = Movie.save({title: selectedMovie.title});
       console.log($scope.movies);
-    $scope.movies.push(entry);
+    // $scope.movies.push(entry);
     $scope.movieSearchResults = null;
   };
   $scope.haha = "me";
