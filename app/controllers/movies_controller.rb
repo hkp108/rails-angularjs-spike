@@ -6,13 +6,8 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
-    respond_to do |format|
-
-    format.html # show.html.erb
-    format.json { render json: @user }
-
- end
+   @movie = Movie.find(params[:id])
+   render :json => @movie.to_json
   end
 
   def create
