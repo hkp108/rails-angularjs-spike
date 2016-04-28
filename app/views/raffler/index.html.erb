@@ -1,0 +1,22 @@
+<div ng-controller='MoveCtrl'>
+  <form ng-submit='addMovie()'>
+    <input class='search' type=text ng-model="newmovie" placeholder="New movie title here">
+  <button type='submit'>Add</button></form>
+  {{ movie}}
+  Click on name to delete
+  <ul ng-repeat="movie in movies">
+    <li class="results"><span ng-click='removeMovie(movie)'>{{movie.title}}<span></li>
+  </ul>
+</div>
+
+<div ng-controller="MovieSearchCtrl as searchcontroller">
+  <form ng-submit="searchcontroller.searchForMovie(movieTitle)">
+    <input type=text ng-model="movieTitle" placeholder="Search movie" class="search">
+    <button type='submit'>Search</button>
+  </form>
+
+  <div ng-show='searchResults'></div>
+  <ul ng-repeat="movie in movieSearchResults">
+    <li class="results">{{movie.title}}<button ng-click='addMovie(movie)'>+</button></li>
+  </ul>
+</div>
