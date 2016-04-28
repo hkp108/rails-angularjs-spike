@@ -46,36 +46,35 @@ Rails API:
  ```
 
 moviecontroller.rb:
-```
-respond_to :json
+```respond_to :json
 
-  def index
-    render :json => Movie.all
-  end
+    def index
+      render :json => Movie.all
+    end
 
-  def show
-    @movie = Movie.find(params[:id])
-    respond_to do |format|
+    def show
+      @movie = Movie.find(params[:id])
+      respond_to do |format|
 
-      format.html # show.html.erb
-      format.json { render json: @user }
+        format.html # show.html.erb
+        format.json { render json: @user }
 
+      end
+    end
+
+    def create
+      respond_with Movie.create(title_params)
+    end
+
+
+    def destroy
+      respond_with Movie.destroy(params[:id])
+    end
+
+    private
+
+    def title_params
+      params.require(:movie).permit(:title)
     end
   end
-
-  def create
-    respond_with Movie.create(title_params)
-  end
-
-
-  def destroy
-    respond_with Movie.destroy(params[:id])
-  end
-
-  private
-
-  def title_params
-    params.require(:movie).permit(:title)
-  end
-end
 ```
